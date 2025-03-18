@@ -1,0 +1,88 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: dev",
+      "detail": "next dev --turbopack"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "next build"
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: start",
+      "detail": "next start"
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "group": "test",
+      "problemMatcher": ["$eslint-stylish"],
+      "label": "npm: lint",
+      "detail": "next lint"
+    },
+    {
+      "type": "npm",
+      "script": "clean",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: clean",
+      "detail": "rimraf .next out"
+    },
+    {
+      "type": "npm",
+      "script": "export",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: export",
+      "detail": "next build && next export"
+    },
+    {
+      "type": "npm",
+      "script": "deploy",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: deploy",
+      "detail": "npm run build && tar -czf deploy.tar.gz out/"
+    },
+    {
+      "type": "npm",
+      "script": "type-check",
+      "group": "test",
+      "problemMatcher": "$tsc",
+      "label": "npm: type-check",
+      "detail": "tsc --noEmit"
+    },
+    {
+      "type": "npm",
+      "script": "format",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: format",
+      "detail": "prettier --write ."
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "group": "test",
+      "problemMatcher": "$jest",
+      "label": "npm: test",
+      "detail": "jest"
+    }
+  ]
+} 

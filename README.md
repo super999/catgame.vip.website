@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CatGame 工作室官方网站
 
-## Getting Started
+这是 CatGame 游戏工作室的官方网站（[catgame.vip](https://catgame.vip)），使用 Next.js 15 和 Tailwind CSS 4 构建。
 
-First, run the development server:
+## 项目概述
+
+CatGame 官网是一个现代化、响应式的游戏工作室展示网站，为访问者提供工作室信息、游戏作品展示以及最新动态。
+
+### 主要功能
+
+- **现代响应式首页**：展示工作室特色和亮点
+- **关于我们**：介绍工作室历史、团队和愿景
+- **游戏展示**：展示工作室开发的游戏作品
+- **新闻动态**：发布工作室最新消息和游戏更新
+- **联系页面**：提供联系表单和联系方式
+
+## 技术栈
+
+- **框架**：Next.js 15
+- **语言**：TypeScript
+- **样式**：Tailwind CSS 4
+- **构建工具**：Turbopack
+- **部署**：静态导出 (Static Export)
+
+## 本地开发
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 启动开发服务器
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+然后在浏览器中访问 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 构建项目
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+构建后的文件将生成在 `.next` 目录中。
 
-To learn more about Next.js, take a look at the following resources:
+### 导出静态文件
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run export
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+静态文件将生成在 `out` 目录中，可直接部署到任何静态文件服务器。
 
-## Deploy on Vercel
+## 部署
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 生成部署包
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run deploy
+```
+
+这将创建一个 `deploy.tar.gz` 文件，包含所有静态网站文件。
+
+### 服务器部署
+
+1. 将 `deploy.tar.gz` 上传到服务器
+2. 执行 `server_deploy.sh` 脚本完成部署
+3. 如需配置HTTPS，可使用 `server_install_cert.sh` 脚本
+
+## 网站结构
+
+```
+src/
+├── app/                    # 应用页面
+│   ├── page.tsx            # 首页
+│   ├── about/              # 关于我们页面
+│   ├── games/              # 游戏展示页面
+│   │   └── [id]/           # 游戏详情页(动态路由)
+│   ├── news/               # 新闻页面
+│   │   └── [id]/           # 新闻详情页(动态路由)
+│   └── contact/            # 联系页面
+├── components/             # 可复用组件
+│   ├── Navigation.tsx      # 导航栏组件
+│   └── Footer.tsx          # 页脚组件
+└── styles/                 # 全局样式
+```
+
+## 许可证
+
+[MIT](LICENSE)
